@@ -4,3 +4,5 @@ next-env.d.ts
 next.config.js
 postcss.config.js
 tailwind.config.ts
+jest.config.mjs
+jest.setup.js
