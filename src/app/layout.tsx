@@ -11,12 +11,12 @@ function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body className="bg-neutral-5 font-sans text-white">
-        <main className="flex h-screen flex-col space-y-8 p-8 md:flex-row md:space-x-8 md:space-y-8">
-          <div className="w-full flex-none md:w-64">
+        <div className="flex h-screen flex-col space-y-8 p-8 md:flex-row md:space-x-8 md:space-y-0">
+          <nav className="w-full flex-none md:w-64">
             <Sidebar />
-          </div>
-          <div>{children}</div>
-        </main>
+          </nav>
+          <main>{children}</main>
+        </div>
       </body>
     </html>
   );
