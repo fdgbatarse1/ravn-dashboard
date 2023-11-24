@@ -5,6 +5,6 @@ describe('Home', () => {
   it('renders the page with correct content', () => {
     const { getByText } = render(<Home />);
 
-    expect(getByText(/Get started/i)).toBeInTheDocument();
+    expect(getByText(/Hello/i)).toBeInTheDocument();
   });
 });
