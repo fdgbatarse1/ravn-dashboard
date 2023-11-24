@@ -1,4 +1,4 @@
-import { Icon } from "@/types";
+import { Icon } from '@/types';
 
 const Dashboard = ({ fill, size }: Icon) => (
   <svg
@@ -16,7 +16,7 @@ const Dashboard = ({ fill, size }: Icon) => (
 );
 
 Dashboard.defaultProps = {
-  fill: "#94979A",
+  fill: '#94979A',
   size: 24,
 };
 

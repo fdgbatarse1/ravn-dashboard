@@ -1,4 +1,4 @@
-import { Icon } from "@/types";
+import { Icon } from '@/types';
 
 const Ravn = ({ fill, size }: Icon) => (
   <svg
@@ -20,7 +20,7 @@ const Ravn = ({ fill, size }: Icon) => (
 );
 
 Ravn.defaultProps = {
-  fill: "white",
+  fill: 'white',
   size: 40,
 };
 
