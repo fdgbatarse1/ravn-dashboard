@@ -1,6 +1,6 @@
 import { RiNotification3Line, RiSearchLine, RiCloseCircleLine } from 'react-icons/ri';
 
-import Avatar from '../avatar';
+import Avatar from '../user/avatar';
 
 const NavigationBar = () => (
   <form className="flex w-full flex-row rounded-2xl bg-neutral-4">

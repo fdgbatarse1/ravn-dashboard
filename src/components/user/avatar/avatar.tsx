@@ -12,4 +12,6 @@ const Avatar = ({ src, alt, className }: AvatarProps) => (
   </div>
 );
 
+export type { AvatarProps };
+
 export default Avatar;
