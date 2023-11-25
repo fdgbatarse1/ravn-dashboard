@@ -12,7 +12,7 @@ const Sidebar = () => (
     </Link>
     <div className="flex text-center text-body-s text-neutral-2 md:flex-col md:text-start md:text-body-m">
       {routes.map(({ text, href, icon }) => (
-        <Tab text={text} href={href} icon={icon} />
+        <Tab text={text} href={href} icon={icon} key={text} />
       ))}
     </div>
   </div>
