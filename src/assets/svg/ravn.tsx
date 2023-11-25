@@ -1,6 +1,6 @@
 import { Icon } from '@/types';
 
-const Ravn = ({ fill, size }: Icon) => (
+const Ravn = ({ fill = 'white', size = 40 }: Icon) => (
   <svg
     width={size}
     height={size}
@@ -18,10 +18,5 @@ const Ravn = ({ fill, size }: Icon) => (
     />
   </svg>
 );
-
-Ravn.defaultProps = {
-  fill: 'white',
-  size: 40,
-};
 
 export default Ravn;

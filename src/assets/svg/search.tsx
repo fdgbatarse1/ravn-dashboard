@@ -1,6 +1,6 @@
 import { Icon } from '@/types';
 
-const Search = ({ fill, size }: Icon) => (
+const Search = ({ fill = '#94979A', size = 24 }: Icon) => (
   <svg
     width={size}
     height={size}
@@ -14,10 +14,5 @@ const Search = ({ fill, size }: Icon) => (
     />
   </svg>
 );
-
-Search.defaultProps = {
-  fill: '#94979A',
-  size: 24,
-};
 
 export default Search;

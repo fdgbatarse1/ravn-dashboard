@@ -1,6 +1,6 @@
 import { Icon } from '@/types';
 
-const Bell = ({ fill, size }: Icon) => (
+const Bell = ({ fill = '#94979A', size = 24 }: Icon) => (
   <svg
     width={size}
     height={size}
@@ -14,10 +14,5 @@ const Bell = ({ fill, size }: Icon) => (
     />
   </svg>
 );
-
-Bell.defaultProps = {
-  fill: '#94979A',
-  size: 24,
-};
 
 export default Bell;

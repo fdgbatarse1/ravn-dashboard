@@ -1,6 +1,6 @@
 import { Icon } from '@/types';
 
-const Cancel = ({ fill, size }: Icon) => (
+const Cancel = ({ fill = '#94979A', size = 24 }: Icon) => (
   <svg
     width={size}
     height={size}
@@ -14,10 +14,5 @@ const Cancel = ({ fill, size }: Icon) => (
     />
   </svg>
 );
-
-Cancel.defaultProps = {
-  fill: '#94979A',
-  size: 24,
-};
 
 export default Cancel;

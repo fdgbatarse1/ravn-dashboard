@@ -1,6 +1,6 @@
 import { Icon } from '@/types';
 
-const Dashboard = ({ fill, size }: Icon) => (
+const Dashboard = ({ fill = '#94979A', size = 24 }: Icon) => (
   <svg
     width={size}
     height={size}
@@ -14,10 +14,5 @@ const Dashboard = ({ fill, size }: Icon) => (
     />
   </svg>
 );
-
-Dashboard.defaultProps = {
-  fill: '#94979A',
-  size: 24,
-};
 
 export default Dashboard;
