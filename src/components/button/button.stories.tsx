@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import List from '@/assets/svg/list';
-import Dashboard from '@/assets/svg/dashboard';
 import Cross from '@/assets/svg/cross';
 
 import Button from './button';
