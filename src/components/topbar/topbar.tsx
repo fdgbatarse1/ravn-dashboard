@@ -17,16 +17,17 @@ const TopBar = () => {
           <Button
             key={key}
             onClick={() => console.log(key)}
-            className={clsx('hover:text-primary-4', {
+            className={clsx({
               'border border-solid border-primary-4 text-primary-4': pathname === path,
+              'text-neutral-1 hover:text-primary-4': pathname !== path,
             })}
           >
             <Icon fill="currentColor" size={24} />
           </Button>
         ))}
       </div>
-      <Button onClick={() => console.log(1)} className="bg-primary-4">
-        <Cross />
+      <Button onClick={() => console.log(1)} className="bg-primary-4 text-neutral-1">
+        <Cross fill="currentColor" size={24} />
       </Button>
     </div>
   );
