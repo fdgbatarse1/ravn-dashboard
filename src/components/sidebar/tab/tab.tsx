@@ -4,6 +4,8 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import clsx from 'clsx';
 
+import withHover from '@/utils/withHover';
+
 interface TabProps {
   text: string;
   icon: React.JSX.Element;
@@ -15,7 +17,7 @@ const Tab = ({ text, icon, href }: TabProps) => {
   return (
     <Link
       href={href}
-      className={clsx('flex place-items-center space-x-4 p-4 uppercase hover:text-primary-4', {
+      className={clsx('flex place-items-center space-x-4 p-4 uppercase', {
         'border-r-4 border-solid border-primary-4 bg-[linear-gradient(90deg,_rgba(186,_37,_37,_0.00)_0%,_rgba(210,_77,_77,_0.10)_100%)] text-primary-4':
           pathname === href,
       })}
@@ -26,4 +28,4 @@ const Tab = ({ text, icon, href }: TabProps) => {
   );
 };
 
-export default Tab;
+export default withHover(Tab);
