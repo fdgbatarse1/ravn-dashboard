@@ -10,7 +10,7 @@ const Sidebar = () => (
     <Link href="https://www.ravn.co/" className="self-center">
       <Ravn fill="white" size={40} />
     </Link>
-    <div className="font-display-xl text-neutral-2">
+    <div className="flex text-body-s text-neutral-2 md:flex-col md:text-body-m">
       <Tab text="dashboard" href="/" icon={<Dashboard fill="currentColor" />} />
     </div>
   </div>

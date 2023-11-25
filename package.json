@@ -10,6 +10,7 @@
     "ci:types": "tsc --noEmit",
     "ci:format": "prettier --check 'src/**/*.{js,jsx,ts,tsx,css,json}'",
     "ci:tests": "jest --ci",
+    "check": "npm run ci:lint && npm run ci:types && npm run ci:format && npm run ci:tests && npm run build",
     "test": "jest",
     "coverage": "jest --coverage",
     "format": "prettier --write 'src/**/*.{js,jsx,ts,tsx,css,json}'",
