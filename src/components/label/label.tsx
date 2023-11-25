@@ -4,7 +4,9 @@ interface LabelProps {
 }
 
 const Label = ({ text, className }: LabelProps) => (
-  <p className={`w-min rounded px-4 py-1 text-body-m font-semibold uppercase ${className}`}>
+  <p
+    className={`w-min whitespace-nowrap rounded px-4 py-1 text-body-m font-semibold uppercase ${className}`}
+  >
     {text}
   </p>
 );

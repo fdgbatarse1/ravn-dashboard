@@ -1,3 +1,4 @@
+import Label from '@/components/label';
 import { RiMoreFill, RiAttachment2, RiNodeTree, RiChat3Line } from 'react-icons/ri';
 
 const Card = () => (
@@ -12,9 +13,13 @@ const Card = () => (
         <p>Today</p>
       </span>
     </div>
-    <ul className="flex justify-start space-x-2">
-      <li>IOS APP</li>
-      <li>ANDROID</li>
+    <ul className="m-[-1rem] flex flex-wrap justify-start space-x-2">
+      <Label className="ml-2 mt-2 bg-secondary-4 bg-opacity-10 text-secondary-4" text="ios app" />
+      <Label className="ml-2 mt-2 bg-tertiary-4 bg-opacity-10 text-tertiary-4" text="android" />
+      <Label className="ml-2 mt-2 bg-secondary-4 bg-opacity-10 text-secondary-4" text="ios app" />
+      <Label className="ml-2 mt-2 bg-tertiary-4 bg-opacity-10 text-tertiary-4" text="android" />
+      <Label className="ml-2 mt-2 bg-secondary-4 bg-opacity-10 text-secondary-4" text="ios app" />
+      <Label className="ml-2 mt-2 bg-tertiary-4 bg-opacity-10 text-tertiary-4" text="android" />
     </ul>
     <div className="flex justify-between space-x-2">
       <div>image</div>
