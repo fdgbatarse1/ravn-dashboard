@@ -23,7 +23,7 @@ const NavigationBar = () => (
         alt="User profile"
         width={40}
         height={40}
-        className="h-auto w-auto [clip-path:_circle()]"
+        className="max-w-10 h-auto max-h-10 w-auto [clip-path:_circle()]"
       />
     </div>
   </form>
