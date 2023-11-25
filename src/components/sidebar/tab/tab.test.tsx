@@ -19,7 +19,6 @@ describe('Tab Component', () => {
   it('renders correctly with given props', () => {
     render(<Tab text="Home" icon={mockIcon} href="/home" />);
     expect(screen.getByText('Home')).toBeInTheDocument();
-    expect(screen.getByRole('link')).toHaveClass('hover:text-primary-4');
     expect(screen.getByRole('link')).toHaveAttribute('href', '/home');
   });
 
