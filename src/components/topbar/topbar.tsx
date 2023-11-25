@@ -1,10 +1,10 @@
 'use client';
 
 import { usePathname } from 'next/navigation';
+import { RiAddLine } from 'react-icons/ri';
 import clsx from 'clsx';
 
 import Button from '@/components/button';
-import Cross from '@/assets/svg/cross';
 
 import switcher from './switcher';
 
@@ -22,12 +22,12 @@ const TopBar = () => {
               'text-neutral-1 hover:text-primary-4': pathname !== path,
             })}
           >
-            <Icon fill="currentColor" size={24} />
+            {Icon}
           </Button>
         ))}
       </div>
       <Button onClick={() => console.log(1)} className="bg-primary-4 text-neutral-1">
-        <Cross fill="currentColor" size={24} />
+        <RiAddLine size="24px" />
       </Button>
     </div>
   );

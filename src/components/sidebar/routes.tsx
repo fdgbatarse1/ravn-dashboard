@@ -1,5 +1,5 @@
-import Dashboard from '@/assets/svg/dashboard';
+import { RiFunctionLine } from 'react-icons/ri';
 
-const routes = [{ text: 'dashboard', href: '/', icon: <Dashboard fill="currentColor" /> }];
+const routes = [{ text: 'dashboard', href: '/', icon: <RiFunctionLine size="24px" /> }];
 
 export default routes;

@@ -1,15 +1,14 @@
-import List from '@/assets/svg/list';
-import Dashboard from '@/assets/svg/dashboard';
+import { RiFunctionLine, RiMenuLine } from 'react-icons/ri';
 
 const switcher = [
   {
     key: 'List',
-    Icon: List,
+    Icon: <RiMenuLine size="24px" />,
     path: '/list',
   },
   {
     key: 'Dashboard',
-    Icon: Dashboard,
+    Icon: <RiFunctionLine size="24px" />,
     path: '/',
   },
 ];

@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import Dashboard from '@/assets/svg/dashboard';
+import { RiFunctionLine } from 'react-icons/ri';
 
 import Tab from './tab';
 
@@ -18,6 +18,6 @@ export const Default: Story = {
   args: {
     text: 'dashboard',
     href: '/',
-    icon: <Dashboard fill="currentColor" />,
+    icon: <RiFunctionLine size="24px" />,
   },
 };

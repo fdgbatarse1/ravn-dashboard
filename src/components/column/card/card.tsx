@@ -1,10 +1,10 @@
-import Dots from '@/assets/svg/dots';
+import { RiMoreFill } from 'react-icons/ri';
 
 const Card = () => (
   <article className="space-y-4 rounded-lg bg-neutral-4 p-4">
     <div className="flex justify-between space-x-2">
       <h4>Slack</h4>
-      <Dots />
+      <RiMoreFill size="24px" className="text-neutral-2" />
     </div>
     <div className="flex justify-between space-x-2">
       <p>4 points</p>

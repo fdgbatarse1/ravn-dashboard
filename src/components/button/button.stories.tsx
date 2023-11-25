@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import List from '@/assets/svg/list';
-import Cross from '@/assets/svg/cross';
+import { RiMenuLine, RiAddLine } from 'react-icons/ri';
 
 import Button from './button';
 
@@ -18,20 +17,20 @@ type Story = StoryObj<typeof meta>;
 export const SwitchSelected: Story = {
   args: {
     className: 'border border-solid border-primary-4 text-primary-4',
-    children: <List fill="currentColor" size={24} />,
+    children: <RiMenuLine size="24px" />,
   },
 };
 
 export const SwitchNotSelected: Story = {
   args: {
     className: 'text-neutral-1 hover:text-primary-4',
-    children: <List fill="currentColor" size={24} />,
+    children: <RiMenuLine size="24px" />,
   },
 };
 
 export const Add: Story = {
   args: {
     className: 'bg-primary-4 text-neutral-1',
-    children: <Cross fill="currentColor" size={24} />,
+    children: <RiAddLine size="24px" />,
   },
 };
