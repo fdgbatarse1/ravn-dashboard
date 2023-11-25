@@ -6,7 +6,7 @@ interface ColumnProps {
 
 const Column = ({ text }: ColumnProps) => (
   <section className="flex h-full w-96 flex-col space-y-4">
-    <h3 className="text-semibold text-body-l">{text}</h3>
+    <h3 className="text-body-l font-semibold text-neutral-1">{text}</h3>
     <Card />
   </section>
 );
