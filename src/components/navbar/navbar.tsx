@@ -1,6 +1,6 @@
-import Image from 'next/image';
-
 import { RiNotification3Line, RiSearchLine, RiCloseCircleLine } from 'react-icons/ri';
+
+import Avatar from '../avatar';
 
 const NavigationBar = () => (
   <form className="flex w-full flex-row rounded-2xl bg-neutral-4">
@@ -16,12 +16,10 @@ const NavigationBar = () => (
     <div className="hidden place-items-center py-3 pr-6 md:flex md:space-x-6">
       <RiCloseCircleLine className="text-neutral-2" size="24px" />
       <RiNotification3Line className="text-neutral-2" size="24px" />
-      <Image
+      <Avatar
         src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         alt="User profile"
-        width={40}
-        height={40}
-        className="max-w-10 h-auto max-h-10 w-auto [clip-path:_circle()]"
+        className="h-10 w-10"
       />
     </div>
   </form>
