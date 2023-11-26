@@ -8,7 +8,14 @@ interface AvatarProps {
 
 const Avatar = ({ src, alt, className }: AvatarProps) => (
   <div className={`${className} relative rounded-full`}>
-    <Image src={src} alt={alt} className="rounded-full" objectFit="cover" fill />
+    <Image
+      src={src}
+      alt={alt}
+      className="rounded-full"
+      style={{ objectFit: 'cover' }}
+      sizes="5vw"
+      fill
+    />
   </div>
 );
 
