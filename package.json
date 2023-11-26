@@ -10,18 +10,27 @@
     "ci:types": "tsc --noEmit",
     "ci:format": "prettier --check 'src/**/*.{js,jsx,ts,tsx,css,json}'",
     "ci:tests": "jest --ci",
+    "check": "npm run ci:lint && npm run ci:types && npm run ci:format && npm run ci:tests && npm run build",
     "test": "jest",
     "coverage": "jest --coverage",
     "format": "prettier --write 'src/**/*.{js,jsx,ts,tsx,css,json}'",
     "storybook": "storybook dev -p 6006 -s ../public",
-    "build-storybook": "storybook build -s public"
+    "build-storybook": "storybook build -s public",
+    "codegen": "graphql-codegen --config codegen.ts"
   },
   "dependencies": {
+    "@apollo/client": "^3.8.7",
+    "@apollo/experimental-nextjs-app-support": "^0.5.1",
+    "clsx": "^2.0.0",
+    "date-fns": "^2.30.0",
     "next": "14.0.3",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-icons": "^4.12.0"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "5.0.0",
+    "@graphql-codegen/client-preset": "4.1.0",
     "@storybook/addon-essentials": "^7.5.3",
     "@storybook/addon-interactions": "^7.5.3",
     "@storybook/addon-links": "^7.5.3",
@@ -32,6 +41,7 @@
     "@storybook/testing-library": "^0.2.2",
     "@testing-library/jest-dom": "^6.1.4",
     "@testing-library/react": "^14.1.2",
+    "@testing-library/user-event": "^14.5.1",
     "@types/jest": "^29.5.10",
     "@types/node": "^20",
     "@types/react": "^18",
