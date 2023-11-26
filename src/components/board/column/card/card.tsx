@@ -4,11 +4,8 @@ import Label from '@/components/label';
 import Avatar from '@/components/user/avatar';
 import { TasksQuery } from '@/gql/graphql';
 
-import {
-  convertPointEstimateToPointValue,
-  convertDueDateToText,
-  getStatusFromDueDate,
-} from '@/utils/formatters';
+import { convertDueDateToText, getStatusFromDueDate } from '@/utils/formatters';
+import pointEstimateToNumber from '@/utils/formatters/pointEstimateToNumber';
 import Reaction from './reaction';
 
 interface CardProps {
@@ -17,7 +14,7 @@ interface CardProps {
 
 const Card = ({ task }: CardProps) => {
   const { name, pointEstimate, dueDate } = task;
-  const pointEstimateValue = convertPointEstimateToPointValue(pointEstimate);
+  const pointEstimateValue = pointEstimateToNumber(pointEstimate);
   const dueDateStatus = getStatusFromDueDate(dueDate);
   const dueDateText = convertDueDateToText(dueDate);
   return (

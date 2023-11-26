@@ -1,17 +1,4 @@
 import { format, isToday, isTomorrow, isYesterday, parseISO, differenceInDays } from 'date-fns';
-import { PointEstimate } from '@/gql/graphql';
-
-const convertPointEstimateToPointValue = (pointEstimate: PointEstimate) => {
-  const pointEstimateToNumber = {
-    [PointEstimate.Eight]: 8,
-    [PointEstimate.Four]: 4,
-    [PointEstimate.One]: 1,
-    [PointEstimate.Two]: 2,
-    [PointEstimate.Zero]: 0,
-  };
-
-  return pointEstimateToNumber[pointEstimate];
-};
 
 const convertDueDateToText = (dueDate: string) => {
   const parsedDueDate = parseISO(dueDate);
@@ -41,11 +28,6 @@ const getStatusFromDueDate = (dueDate: string) => {
 
 const getColumnName = (text: string, tasks: number) => `${text.replace('_', ' ')} (${tasks})`;
 
-export {
-  convertPointEstimateToPointValue,
-  convertDueDateToText,
-  getStatusFromDueDate,
-  getColumnName,
-};
+export { convertDueDateToText, getStatusFromDueDate, getColumnName };
 
 export default {};
