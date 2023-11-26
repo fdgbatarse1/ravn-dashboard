@@ -15,7 +15,7 @@ function RootLayout({ children }: { children: React.ReactNode }) {
           <nav className="w-full flex-none md:w-64">
             <Sidebar />
           </nav>
-          <main className="flex-grow">{children}</main>
+          <main className="flex-grow overflow-auto">{children}</main>
         </div>
       </body>
     </html>
