@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import TasksQueryMock from '@/data/mocks/TasksQueryMock';
 
 import Board from './board';
 
@@ -13,5 +14,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-  args: {},
+  args: {
+    data: TasksQueryMock,
+  },
 };

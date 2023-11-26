@@ -23,7 +23,7 @@ const tasksQuery = gql`
 
 const getTasks = async () => {
   const { data } = await getClient().query<TasksQuery>({ query: tasksQuery });
-  return data.tasks;
+  return data;
 };
 
 export default getTasks;
