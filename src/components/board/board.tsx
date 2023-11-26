@@ -1,5 +1,4 @@
-import Column from '@/components/column/column';
-
+import Column from './column';
 import columns from './columns';
 
 const Board = () => (

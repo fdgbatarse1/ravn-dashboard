@@ -5,7 +5,7 @@ import { RiChat3Line, RiNodeTree } from 'react-icons/ri';
 import Reaction from './reaction';
 
 const meta = {
-  title: 'Components/column/card/reaction',
+  title: 'Components/board/column/card/reaction',
   component: Reaction,
   tags: ['autodocs'],
 } satisfies Meta<typeof Reaction>;
