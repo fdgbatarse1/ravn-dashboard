@@ -8,7 +8,10 @@ interface BoardProps {
 }
 
 const Board = ({ data }: BoardProps) => {
+  if (!data.tasks.length) return <p>No Tasks Here Yet!</p>;
+
   const columns = groupBy({ array: data.tasks, fn: (task) => task.status });
+
   return (
     <div className="flex-grow overflow-auto">
       <section className="flex w-fit flex-row space-x-4">
