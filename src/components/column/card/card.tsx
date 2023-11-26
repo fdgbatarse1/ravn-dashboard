@@ -1,24 +1,22 @@
 import Label from '@/components/label';
 import Avatar from '@/components/user/avatar';
-import { RiMoreFill, RiAttachment2, RiNodeTree, RiChat3Line } from 'react-icons/ri';
+import { RiMoreFill, RiAttachment2, RiNodeTree, RiChat3Line, RiAlarmLine } from 'react-icons/ri';
 
 const Card = () => (
   <article className="space-y-4 rounded-lg bg-neutral-4 p-4 text-neutral-1">
     <div className="flex justify-between space-x-2">
-      <h4 className="text-body-l font-semibold">Slack</h4>
+      <h4 className="text-body-l font-semibold text-neutral-1">Slack</h4>
       <RiMoreFill size="24px" className="text-neutral-2" />
     </div>
     <div className="flex justify-between space-x-2">
-      <p>4 points</p>
-      <span>
-        <p>Today</p>
-      </span>
+      <p className="text-body-m font-semibold text-neutral-1">4 points</p>
+      <Label
+        className="bg-neutral-2 bg-opacity-10 text-neutral-1"
+        icon={<RiAlarmLine size="24px" />}
+        text="Today"
+      />
     </div>
     <ul className="m-[-1rem] flex flex-wrap justify-start space-x-2">
-      <Label className="ml-2 mt-2 bg-secondary-4 bg-opacity-10 text-secondary-4" text="ios app" />
-      <Label className="ml-2 mt-2 bg-tertiary-4 bg-opacity-10 text-tertiary-4" text="android" />
-      <Label className="ml-2 mt-2 bg-secondary-4 bg-opacity-10 text-secondary-4" text="ios app" />
-      <Label className="ml-2 mt-2 bg-tertiary-4 bg-opacity-10 text-tertiary-4" text="android" />
       <Label className="ml-2 mt-2 bg-secondary-4 bg-opacity-10 text-secondary-4" text="ios app" />
       <Label className="ml-2 mt-2 bg-tertiary-4 bg-opacity-10 text-tertiary-4" text="android" />
     </ul>
