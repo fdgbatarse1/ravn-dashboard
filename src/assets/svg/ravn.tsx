@@ -1,4 +1,7 @@
-import { Icon } from '@/types';
+interface Icon {
+  fill?: string;
+  size?: number;
+}
 
 const Ravn = ({ fill = 'white', size = 40 }: Icon) => (
   <svg

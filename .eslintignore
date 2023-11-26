@@ -7,3 +7,4 @@ tailwind.config.ts
 jest.config.mjs
 jest.setup.js
 prettier.config.js
+src/gql
