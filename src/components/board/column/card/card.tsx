@@ -4,7 +4,11 @@ import Label from '@/components/label';
 import Avatar from '@/components/user/avatar';
 import { TasksQuery } from '@/gql/graphql';
 
-import { convertPointEstimateToPointValue } from '@/utils/formatters';
+import {
+  convertPointEstimateToPointValue,
+  convertDueDateToText,
+  getStatusFromDueDate,
+} from '@/utils/formatters';
 import Reaction from './reaction';
 
 interface CardProps {
@@ -12,7 +16,10 @@ interface CardProps {
 }
 
 const Card = ({ task }: CardProps) => {
-  const { name, pointEstimate } = task;
+  const { name, pointEstimate, dueDate } = task;
+  const pointEstimateValue = convertPointEstimateToPointValue(pointEstimate);
+  const dueDateStatus = getStatusFromDueDate(dueDate);
+  const dueDateText = convertDueDateToText(dueDate);
   return (
     <article className="space-y-4 rounded-lg bg-neutral-4 p-4 text-neutral-1">
       <div className="flex justify-between space-x-2">
@@ -20,14 +27,8 @@ const Card = ({ task }: CardProps) => {
         <RiMoreFill size="24px" className="text-neutral-2" />
       </div>
       <div className="flex justify-between space-x-2">
-        <p className="text-body-m font-semibold text-neutral-1">
-          {convertPointEstimateToPointValue(pointEstimate)} points
-        </p>
-        <Label
-          className="bg-neutral-2 bg-opacity-10 text-neutral-1"
-          icon={<RiAlarmLine size="24px" />}
-          text="Today"
-        />
+        <p className="text-body-m font-semibold text-neutral-1">{pointEstimateValue} points</p>
+        <Label className={dueDateStatus} icon={<RiAlarmLine size="24px" />} text={dueDateText} />
       </div>
       <ul className="m-[-1rem] flex flex-wrap justify-start space-x-2">
         <Label className="ml-2 mt-2 bg-secondary-4 bg-opacity-10 text-secondary-4" text="ios app" />

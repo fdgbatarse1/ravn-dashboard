@@ -22,6 +22,7 @@
     "@apollo/client": "^3.8.7",
     "@apollo/experimental-nextjs-app-support": "^0.5.1",
     "clsx": "^2.0.0",
+    "date-fns": "^2.30.0",
     "next": "14.0.3",
     "react": "^18",
     "react-dom": "^18",
@@ -29,6 +30,7 @@
   },
   "devDependencies": {
     "@graphql-codegen/cli": "5.0.0",
+    "@graphql-codegen/client-preset": "4.1.0",
     "@storybook/addon-essentials": "^7.5.3",
     "@storybook/addon-interactions": "^7.5.3",
     "@storybook/addon-links": "^7.5.3",
@@ -66,7 +68,6 @@
     "prettier-plugin-tailwindcss": "^0.5.7",
     "storybook": "^7.5.3",
     "tailwindcss": "^3.3.0",
-    "typescript": "^5",
-    "@graphql-codegen/client-preset": "4.1.0"
+    "typescript": "^5"
   }
 }

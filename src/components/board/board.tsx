@@ -16,7 +16,7 @@ const Board = ({ data }: BoardProps) => {
     <div className="flex-grow overflow-auto">
       <section className="flex w-fit flex-row space-x-4">
         {Object.entries(columns).map(([key, value]) => (
-          <Column key={key} text={key} tasks={value} />
+          <Column key={key} name={key} tasks={value} />
         ))}
       </section>
     </div>
