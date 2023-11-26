@@ -1,6 +1,9 @@
+import { RiMoreFill, RiAttachment2, RiNodeTree, RiChat3Line, RiAlarmLine } from 'react-icons/ri';
+
 import Label from '@/components/label';
 import Avatar from '@/components/user/avatar';
-import { RiMoreFill, RiAttachment2, RiNodeTree, RiChat3Line, RiAlarmLine } from 'react-icons/ri';
+
+import Reaction from './reaction';
 
 const Card = () => (
   <article className="space-y-4 rounded-lg bg-neutral-4 p-4 text-neutral-1">
@@ -26,18 +29,12 @@ const Card = () => (
         className="h-8 w-8"
         src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
       />
-      <ul className="flex items-center space-x-4 text-body-m">
-        <li className="py-1">
+      <ul className="flex items-center space-x-4">
+        <li className="py-1 text-body-m text-neutral-1">
           <RiAttachment2 size="16px" />
         </li>
-        <li className="flex items-center space-x-1 py-1">
-          <p>5</p>
-          <RiNodeTree size="16px" />
-        </li>
-        <li className="flex items-center space-x-1 py-1">
-          <p>5</p>
-          <RiChat3Line size="16px" />
-        </li>
+        <Reaction count={5} icon={<RiNodeTree size="16px" />} />
+        <Reaction count={5} icon={<RiChat3Line size="16px" />} />
       </ul>
     </div>
   </article>
