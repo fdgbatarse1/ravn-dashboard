@@ -26,8 +26,6 @@ const getStatusFromDueDate = (dueDate: string) => {
   return 'bg-tertiary-4 text-tertiary-4 bg-opacity-10';
 };
 
-const getColumnName = (text: string, tasks: number) => `${text.replace('_', ' ')} (${tasks})`;
-
-export { convertDueDateToText, getStatusFromDueDate, getColumnName };
+export { convertDueDateToText, getStatusFromDueDate };
 
 export default {};
