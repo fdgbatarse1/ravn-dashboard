@@ -22,6 +22,11 @@
       "@/*": ["./src/*"]
     }
   },
+  "typedocOptions": {
+    "entryPoints": ["src/{utils,services,lib}/**/*.{tsx,ts}"],
+    "out": "./docs",
+    "exclude": ["**/src/{utils,services,lib}/**/index.{tsx,ts}", "**/*test.*"]
+  },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
