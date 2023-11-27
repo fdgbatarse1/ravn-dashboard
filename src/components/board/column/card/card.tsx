@@ -4,8 +4,9 @@ import Label from '@/components/label';
 import Avatar from '@/components/user/avatar';
 import { TasksQuery } from '@/gql/graphql';
 
-import { convertDueDateToText, getStatusFromDueDate } from '@/utils/formatters';
+import { getStatusFromDueDate } from '@/utils/formatters';
 import pointEstimateToNumber from '@/utils/formatters/pointEstimateToNumber';
+import dueDateText from '@/utils/formatters/dueDateText';
 import Reaction from './reaction';
 
 interface CardProps {
@@ -14,9 +15,9 @@ interface CardProps {
 
 const Card = ({ task }: CardProps) => {
   const { name, pointEstimate, dueDate } = task;
-  const pointEstimateValue = pointEstimateToNumber(pointEstimate);
+  const formattedEstimateValue = pointEstimateToNumber(pointEstimate);
+  const formattedDueDateText = dueDateText(dueDate);
   const dueDateStatus = getStatusFromDueDate(dueDate);
-  const dueDateText = convertDueDateToText(dueDate);
   return (
     <article className="space-y-4 rounded-lg bg-neutral-4 p-4 text-neutral-1">
       <div className="flex justify-between space-x-2">
@@ -24,8 +25,12 @@ const Card = ({ task }: CardProps) => {
         <RiMoreFill size="24px" className="text-neutral-2" />
       </div>
       <div className="flex justify-between space-x-2">
-        <p className="text-body-m font-semibold text-neutral-1">{pointEstimateValue} points</p>
-        <Label className={dueDateStatus} icon={<RiAlarmLine size="24px" />} text={dueDateText} />
+        <p className="text-body-m font-semibold text-neutral-1">{formattedEstimateValue} points</p>
+        <Label
+          className={dueDateStatus}
+          icon={<RiAlarmLine size="24px" />}
+          text={formattedDueDateText}
+        />
       </div>
       <ul className="m-[-1rem] flex flex-wrap justify-start space-x-2">
         <Label className="ml-2 mt-2 bg-secondary-4 bg-opacity-10 text-secondary-4" text="ios app" />
