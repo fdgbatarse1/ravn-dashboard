@@ -1,11 +1,11 @@
 interface ButtonProps {
   submit?: boolean;
-  onClick: () => void;
+  onClick?: () => void;
   children: React.ReactNode;
   className?: string;
 }
 
-const Button = ({ submit = false, children, onClick, className = '' }: ButtonProps) => (
+const Button = ({ submit = false, children, onClick = undefined, className = '' }: ButtonProps) => (
   <button
     type={submit ? 'submit' : 'button'}
     onClick={onClick}

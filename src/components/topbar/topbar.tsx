@@ -4,6 +4,8 @@ import { usePathname } from 'next/navigation';
 import { RiAddLine } from 'react-icons/ri';
 import clsx from 'clsx';
 
+import Link from 'next/link';
+
 import Button from '@/components/button';
 
 import switcher from './switcher';
@@ -26,9 +28,11 @@ const TopBar = () => {
           </Button>
         ))}
       </div>
-      <Button onClick={() => console.log(1)} className="bg-primary-4 text-neutral-1">
-        <RiAddLine size="24px" />
-      </Button>
+      <Link href="?modal=true">
+        <Button className="bg-primary-4 text-neutral-1">
+          <RiAddLine size="24px" />
+        </Button>
+      </Link>
     </div>
   );
 };
