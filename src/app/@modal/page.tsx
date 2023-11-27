@@ -1,7 +1,7 @@
 'use client';
 
 import { useSearchParams, useRouter } from 'next/navigation';
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useCallback } from 'react';
 
 import Form from '@/components/form';
 
@@ -11,20 +11,20 @@ const Modal = () => {
   const modalRef = useRef<null | HTMLDialogElement>(null);
   const modal = searchParams.get('modal');
 
+  const onClose = useCallback(() => {
+    modalRef.current?.close();
+    router.push('/');
+  }, [router]);
+
   useEffect(() => {
     if (modal === 'true') {
       modalRef.current?.showModal();
     } else {
-      modalRef.current?.close();
+      onClose();
     }
-  }, [modal]);
+  }, [modal, onClose]);
 
   if (modal !== 'true') return null;
-
-  const onClose = () => {
-    modalRef.current?.close();
-    router.push('/');
-  };
 
   return (
     <dialog
