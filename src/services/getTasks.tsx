@@ -15,6 +15,7 @@ const tasksQuery = gql`
       id
       name
       pointEstimate
+      position
       status
       tags
     }
