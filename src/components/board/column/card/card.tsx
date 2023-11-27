@@ -5,6 +5,7 @@ import { TasksQuery } from '@/gql/graphql';
 import pointEstimateToNumber from '@/utils/formatters/pointEstimateToNumber';
 import dueDateText from '@/utils/formatters/dueDateText';
 import dueDateStatus from '@/utils/formatters/dueDateStatus/dueDateStatus';
+import tagColor from '@/utils/formatters/tagColor';
 
 import Reaction from './reaction';
 
@@ -13,7 +14,7 @@ interface CardProps {
 }
 
 const Card = ({ task }: CardProps) => {
-  const { name, pointEstimate, dueDate } = task;
+  const { name, pointEstimate, dueDate, tags } = task;
   const formattedEstimateValue = pointEstimateToNumber(pointEstimate);
   const formattedDueDateText = dueDateText(dueDate);
   const formattedDueDateStatus = dueDateStatus(dueDate);
@@ -32,8 +33,11 @@ const Card = ({ task }: CardProps) => {
         />
       </div>
       <ul className="m-[-1rem] flex flex-wrap justify-start space-x-2">
-        <Label className="ml-2 mt-2 bg-secondary-4 bg-opacity-10 text-secondary-4" text="ios app" />
-        <Label className="ml-2 mt-2 bg-tertiary-4 bg-opacity-10 text-tertiary-4" text="android" />
+        {tags.map((tag) => {
+          const color = tagColor(tag);
+          const text = tag.replace('_', ' ');
+          return <Label key={tag} className={`ml-2 mt-2 bg-opacity-10 ${color}`} text={text} />;
+        })}
       </ul>
       <div className="flex justify-between space-x-2">
         <Avatar
