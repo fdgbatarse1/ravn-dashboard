@@ -10,7 +10,7 @@ const tasksQuery = gql`
   query tasks {
     tasks(input: {}) {
       assignee {
-        avatars
+        avatar
       }
       dueDate
       id
