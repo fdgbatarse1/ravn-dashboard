@@ -10,7 +10,7 @@ const NavigationBar = () => (
         id="search"
         type="text"
         placeholder="Search"
-        className="w-full bg-transparent text-body-s text-neutral-2 focus-visible:outline-none md:text-body-m"
+        className="w-full bg-transparent text-body-s text-neutral-1 placeholder:text-neutral-2 focus-visible:outline-none md:text-body-m"
       />
     </label>
     <div className="hidden place-items-center py-3 pr-6 md:flex md:space-x-6">
