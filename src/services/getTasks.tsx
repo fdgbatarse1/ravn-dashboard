@@ -4,12 +4,13 @@ import { getClient } from '@/lib/ApolloClient';
 import { gql } from '@apollo/client';
 
 import { TasksQuery } from '@/gql/graphql';
+import ErrorType from '@/data/enums/error';
 
 const tasksQuery = gql`
   query tasks {
     tasks(input: {}) {
       assignee {
-        avatar
+        avatars
       }
       dueDate
       id
@@ -23,8 +24,12 @@ const tasksQuery = gql`
 `;
 
 const getTasks = async () => {
-  const { data } = await getClient().query<TasksQuery>({ query: tasksQuery });
-  return data;
+  try {
+    const { data } = await getClient().query<TasksQuery>({ query: tasksQuery });
+    return data;
+  } catch {
+    throw new Error(ErrorType.GetTasks);
+  }
 };
 
 export default getTasks;
