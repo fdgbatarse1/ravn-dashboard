@@ -9,7 +9,7 @@ const Button = ({ submit = false, children, onClick, className = '' }: ButtonPro
   <button
     type={submit ? 'submit' : 'button'}
     onClick={onClick}
-    className={`rounded-lg p-2 ${className}`}
+    className={`rounded-lg p-2 text-body-m ${className}`}
   >
     {children}
   </button>

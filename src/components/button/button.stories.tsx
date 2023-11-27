@@ -34,3 +34,52 @@ export const Add: Story = {
     children: <RiAddLine size="24px" />,
   },
 };
+
+export const Red1: Story = {
+  args: {
+    className: 'bg-primary-4 text-neutral-1',
+    children: 'Button',
+  },
+};
+
+export const Red2: Story = {
+  args: {
+    className: 'bg-primary-3 text-neutral-1',
+    children: 'Button',
+  },
+};
+
+export const Red3: Story = {
+  args: {
+    className: 'bg-primary-2 text-neutral-1',
+    children: 'Button',
+  },
+};
+
+export const Transparent1: Story = {
+  args: {
+    className: 'bg-transparent text-neutral-1',
+    children: 'Button',
+  },
+};
+
+export const Transparent2: Story = {
+  args: {
+    className: 'bg-transparent text-neutral-2',
+    children: 'Button',
+  },
+};
+
+export const Neutral1: Story = {
+  args: {
+    className: 'bg-neutral-2 text-neutral-1',
+    children: 'Button',
+  },
+};
+
+export const Neutral2: Story = {
+  args: {
+    className: 'bg-neutral-3 text-neutral-1',
+    children: 'Button',
+  },
+};
