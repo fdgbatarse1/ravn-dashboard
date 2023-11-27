@@ -1,5 +1,4 @@
 import { RiMoreFill, RiAttachment2, RiNodeTree, RiChat3Line, RiAlarmLine } from 'react-icons/ri';
-import Placeholder from '@/assets/image/placeholder.png';
 import Label from '@/components/label';
 import Avatar from '@/components/user/avatar';
 import { TasksQuery } from '@/gql/graphql';
@@ -7,6 +6,7 @@ import pointEstimateToNumber from '@/utils/formatters/pointEstimateToNumber';
 import dueDateText from '@/utils/formatters/dueDateText';
 import dueDateStatus from '@/utils/formatters/dueDateStatus/dueDateStatus';
 import tagColor from '@/utils/formatters/tagColor';
+import Placeholder from '@/../public/image/placeholder.png';
 
 import Reaction from './reaction';
 
