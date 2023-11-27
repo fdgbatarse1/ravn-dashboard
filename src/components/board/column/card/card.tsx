@@ -6,7 +6,7 @@ import pointEstimateToNumber from '@/utils/formatters/pointEstimateToNumber';
 import dueDateText from '@/utils/formatters/dueDateText';
 import dueDateStatus from '@/utils/formatters/dueDateStatus/dueDateStatus';
 import tagColor from '@/utils/formatters/tagColor';
-import Placeholder from '@/../public/image/placeholder.png';
+import Placeholder from '@/assets/image/placeholder.png';
 
 import Reaction from './reaction';
 
