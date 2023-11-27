@@ -6,7 +6,7 @@ import pointEstimateToNumber from '@/utils/formatters/pointEstimateToNumber';
 import dueDateText from '@/utils/formatters/dueDateText';
 import dueDateStatus from '@/utils/formatters/dueDateStatus/dueDateStatus';
 import tagColor from '@/utils/formatters/tagColor';
-import * as Placeholder from '@/assets/image/placeholder.png';
+import placeholder from '@/assets/image/placeholder.webp';
 
 import Reaction from './reaction';
 
@@ -42,7 +42,7 @@ const Card = ({ task }: CardProps) => {
         })}
       </ul>
       <div className="flex justify-between space-x-2">
-        <Avatar alt="User profile" className="h-8 w-8" src={imageUrl || Placeholder.default} />
+        <Avatar alt="User profile" className="h-8 w-8" src={imageUrl || placeholder} />
         <ul className="flex items-center space-x-4">
           <li className="py-1 text-body-m text-neutral-1">
             <RiAttachment2 size="16px" />
