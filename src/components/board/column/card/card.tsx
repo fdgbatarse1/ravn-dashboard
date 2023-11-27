@@ -1,12 +1,11 @@
 import { RiMoreFill, RiAttachment2, RiNodeTree, RiChat3Line, RiAlarmLine } from 'react-icons/ri';
-
 import Label from '@/components/label';
 import Avatar from '@/components/user/avatar';
 import { TasksQuery } from '@/gql/graphql';
-
-import { getStatusFromDueDate } from '@/utils/formatters';
 import pointEstimateToNumber from '@/utils/formatters/pointEstimateToNumber';
 import dueDateText from '@/utils/formatters/dueDateText';
+import dueDateStatus from '@/utils/formatters/dueDateStatus/dueDateStatus';
+
 import Reaction from './reaction';
 
 interface CardProps {
@@ -17,7 +16,7 @@ const Card = ({ task }: CardProps) => {
   const { name, pointEstimate, dueDate } = task;
   const formattedEstimateValue = pointEstimateToNumber(pointEstimate);
   const formattedDueDateText = dueDateText(dueDate);
-  const dueDateStatus = getStatusFromDueDate(dueDate);
+  const formattedDueDateStatus = dueDateStatus(dueDate);
   return (
     <article className="space-y-4 rounded-lg bg-neutral-4 p-4 text-neutral-1">
       <div className="flex justify-between space-x-2">
@@ -27,7 +26,7 @@ const Card = ({ task }: CardProps) => {
       <div className="flex justify-between space-x-2">
         <p className="text-body-m font-semibold text-neutral-1">{formattedEstimateValue} points</p>
         <Label
-          className={dueDateStatus}
+          className={formattedDueDateStatus}
           icon={<RiAlarmLine size="24px" />}
           text={formattedDueDateText}
         />

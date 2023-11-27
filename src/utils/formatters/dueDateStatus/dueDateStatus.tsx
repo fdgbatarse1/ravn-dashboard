@@ -1,6 +1,6 @@
 import { parseISO, differenceInDays } from 'date-fns';
 
-const getStatusFromDueDate = (dueDate: string) => {
+const dueDateStatus = (dueDate: string) => {
   const currentDate = new Date();
   const parsedDueDate = parseISO(dueDate);
   const days = differenceInDays(currentDate, parsedDueDate);
@@ -16,6 +16,4 @@ const getStatusFromDueDate = (dueDate: string) => {
   return 'bg-tertiary-4 text-tertiary-4 bg-opacity-10';
 };
 
-export { getStatusFromDueDate };
-
-export default {};
+export default dueDateStatus;
