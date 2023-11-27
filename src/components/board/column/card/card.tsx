@@ -1,4 +1,5 @@
 import { RiMoreFill, RiAttachment2, RiNodeTree, RiChat3Line, RiAlarmLine } from 'react-icons/ri';
+import Placeholder from '@/assets/image/placeholder.png';
 import Label from '@/components/label';
 import Avatar from '@/components/user/avatar';
 import { TasksQuery } from '@/gql/graphql';
@@ -14,7 +15,8 @@ interface CardProps {
 }
 
 const Card = ({ task }: CardProps) => {
-  const { name, pointEstimate, dueDate, tags } = task;
+  const { name, pointEstimate, dueDate, tags, assignee } = task;
+  const imageUrl = assignee?.avatar;
   const formattedEstimateValue = pointEstimateToNumber(pointEstimate);
   const formattedDueDateText = dueDateText(dueDate);
   const formattedDueDateStatus = dueDateStatus(dueDate);
@@ -40,11 +42,7 @@ const Card = ({ task }: CardProps) => {
         })}
       </ul>
       <div className="flex justify-between space-x-2">
-        <Avatar
-          alt="User profile"
-          className="h-8 w-8"
-          src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-        />
+        <Avatar alt="User profile" className="h-8 w-8" src={imageUrl || Placeholder} />
         <ul className="flex items-center space-x-4">
           <li className="py-1 text-body-m text-neutral-1">
             <RiAttachment2 size="16px" />
