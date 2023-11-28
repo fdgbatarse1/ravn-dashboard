@@ -57,7 +57,7 @@ const Form = ({ onClose }: FormProps) => {
         <CheckboxInput name="label" array={labelArray} />
         <Error error={state.errors?.label} />
         <input
-          type="date"
+          type="datetime-local"
           name="dueDate"
           className="rounded bg-neutral-1 text-body-m text-neutral-4"
         />
