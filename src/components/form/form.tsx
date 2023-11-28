@@ -17,11 +17,18 @@ import { State, createTask } from './formActions';
 import CheckboxInput from './checkboxInput';
 import StateHandler from './stateHandler';
 
-interface FormProps {
+interface CreateProps {
   onClose: () => void;
+  type: 'create' | 'update';
 }
 
-const Form = ({ onClose }: FormProps) => {
+interface UpdateProps extends CreateProps {
+  id: string;
+}
+
+type FormProps = CreateProps | UpdateProps;
+
+const Form = ({ onClose, type, id }: FormProps) => {
   const initialState = {};
   const [state, dispatch] = useFormState<State, FormData>(createTask, initialState);
 
