@@ -25,7 +25,6 @@ const TaskSchema = z.object({
     invalid_type_error: 'Invalid estimate type. Please select a valid estimate.',
   }),
   assignee: z.string({
-    required_error: 'Assignee is required.',
     invalid_type_error: 'Assignee must be a string.',
   }),
   label: z
