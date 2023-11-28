@@ -5,6 +5,7 @@ import { useRef, useEffect, useCallback } from 'react';
 
 import Form from '@/components/form';
 import Confirmation from '@/components/confirmation/confirmation';
+import { deleteTaskAction } from '@/components/form/formActions';
 
 const Modal = () => {
   const router = useRouter();
@@ -36,7 +37,13 @@ const Modal = () => {
     >
       {/* {type === 'update' && id && <Form onClose={onClose} type={type} id={id} />} */}
       {type === 'create' && <Form onClose={onClose} type={type} />}
-      {type === 'delete' && id && <Confirmation />}
+      {type === 'delete' && id && (
+        <Confirmation
+          text="Are you sure you want to delete this task?"
+          onCancel={onClose}
+          onConfirm={() => deleteTaskAction(id)}
+        />
+      )}
     </dialog>
   );
 };

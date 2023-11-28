@@ -3,6 +3,7 @@
 import { z } from 'zod';
 import { PointEstimate, Status, TaskTag } from '@/gql/graphql';
 import postTask from '@/services/postTask';
+import deleteTask from '@/services/deleteTask';
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 import ErrorType from '@/data/enums/error';
@@ -19,6 +20,10 @@ export type State = {
 };
 
 const TaskSchema = z.object({
+  id: z.string({
+    required_error: 'Task id is required.',
+    invalid_type_error: 'Invalid task id.',
+  }),
   title: z
     .string({
       required_error: 'Title is required.',
@@ -43,8 +48,11 @@ const TaskSchema = z.object({
   }),
 });
 
-const createTask = async (_: State, formData: FormData) => {
-  const validatedFields = TaskSchema.safeParse({
+const CreateTask = TaskSchema.omit({ id: true });
+const DeleteTask = TaskSchema.pick({ id: true });
+
+const createTaskAction = async (_: State, formData: FormData) => {
+  const validatedFields = CreateTask.safeParse({
     title: formData.get('title'),
     estimate: formData.get('estimate'),
     assignee: formData.get('assignee'),
@@ -80,4 +88,32 @@ const createTask = async (_: State, formData: FormData) => {
   return {};
 };
 
-export { createTask };
+const deleteTaskAction = async (id: string) => {
+  const validatedFields = DeleteTask.safeParse({
+    id,
+  });
+
+  if (!validatedFields.success) {
+    return {
+      errors: validatedFields.error.flatten().fieldErrors,
+      message: 'Missing Fields. Failed to delete task.',
+    };
+  }
+
+  try {
+    await deleteTask({
+      id: validatedFields.data.id,
+    });
+  } catch (e) {
+    return {
+      message: ErrorType.DeleteTask,
+    };
+  }
+
+  revalidatePath('/');
+  redirect('/');
+
+  return {};
+};
+
+export { createTaskAction, deleteTaskAction };

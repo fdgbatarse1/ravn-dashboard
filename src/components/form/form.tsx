@@ -13,7 +13,7 @@ import Error from './error';
 import Buttons from './buttons';
 import TextInput from './textInput';
 import SelectInput from './selectInput';
-import { State, createTask } from './formActions';
+import { State, createTaskAction } from './formActions';
 import CheckboxInput from './checkboxInput';
 import StateHandler from './stateHandler';
 
@@ -30,7 +30,7 @@ type FormProps = CreateProps | UpdateProps;
 
 const Form = ({ onClose, type, id }: FormProps) => {
   const initialState = {};
-  const [state, dispatch] = useFormState<State, FormData>(createTask, initialState);
+  const [state, dispatch] = useFormState<State, FormData>(createTaskAction, initialState);
 
   const [loading, error, users] = useAsync<UsersQuery['users']>(async () => {
     // const data = await getUsers();
