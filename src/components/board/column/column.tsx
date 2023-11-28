@@ -1,5 +1,5 @@
 import { TasksQuery } from '@/gql/graphql';
-import columnName from '@/utils/formatters/columnName';
+import columnName from '@/utils/columnName';
 
 import Card from './card';
 

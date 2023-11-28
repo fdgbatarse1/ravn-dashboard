@@ -1,7 +1,7 @@
 'use client';
 
 import Button from '@/components/button';
-import ErrorMessage from '@/utils/formatters/errorMessage/errorMessage';
+import ErrorMessage from '@/utils/errorMessage/errorMessage';
 
 interface ErrorPageProps {
   error: Error;

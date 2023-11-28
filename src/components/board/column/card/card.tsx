@@ -2,10 +2,10 @@ import { RiMoreFill, RiAttachment2, RiNodeTree, RiChat3Line, RiAlarmLine } from 
 import Label from '@/components/label';
 import Avatar from '@/components/user/avatar';
 import { TasksQuery } from '@/gql/graphql';
-import pointEstimateToNumber from '@/utils/formatters/pointEstimateToNumber';
-import dueDateText from '@/utils/formatters/dueDateText';
-import dueDateStatus from '@/utils/formatters/dueDateStatus';
-import tagColor from '@/utils/formatters/tagColor';
+import pointEstimateToNumber from '@/utils/pointEstimateToNumber';
+import dueDateText from '@/utils/dueDateText';
+import dueDateStatus from '@/utils/dueDateStatus';
+import tagColor from '@/utils/tagColor';
 import placeholder from '@/assets/image/placeholder.webp';
 
 import Reaction from './reaction';

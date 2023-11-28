@@ -6,7 +6,7 @@ import UsersQueryMock from '@/data/mocks/UsersQueryMock';
 import { PointEstimate, TaskTag, UsersQuery } from '@/gql/graphql';
 import useAsync from '@/hooks/useAsync';
 // import getUsers from '@/services/getUsers';
-import pointEstimateToNumber from '@/utils/formatters/pointEstimateToNumber';
+import pointEstimateToNumber from '@/utils/pointEstimateToNumber';
 import ErrorType from '@/data/enums/error';
 
 import Error from './error';
