@@ -1,11 +1,11 @@
-interface FormStateHandlerProps<T> {
+interface StateHandlerProps<T> {
   children: React.ReactNode;
   loading: boolean;
   error: T;
   onClose: () => void;
 }
 
-const FormStateHandler = <T,>({ children, loading, error, onClose }: FormStateHandlerProps<T>) => {
+const stateHandler = <T,>({ children, loading, error, onClose }: StateHandlerProps<T>) => {
   if (loading || error) {
     return (
       <div className="flex w-min flex-col space-y-4 whitespace-nowrap rounded-lg bg-neutral-3 p-4 text-neutral-1">
@@ -20,4 +20,4 @@ const FormStateHandler = <T,>({ children, loading, error, onClose }: FormStateHa
   return children;
 };
 
-export default FormStateHandler;
+export default stateHandler;

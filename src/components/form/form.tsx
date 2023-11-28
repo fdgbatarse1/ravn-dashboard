@@ -14,7 +14,7 @@ import TextInput from './textInput';
 import SelectInput from './selectInput';
 import { State, createTask } from './formActions';
 import CheckboxInput from './checkboxInput';
-import FormStateHandler from './FormStateHandler';
+import StateHandler from './stateHandler';
 
 interface FormProps {
   onClose: () => void;
@@ -46,7 +46,7 @@ const Form = ({ onClose }: FormProps) => {
   }));
 
   return (
-    <FormStateHandler loading={loading} error={error} onClose={onClose}>
+    <StateHandler loading={loading} error={error} onClose={onClose}>
       <form className="flex w-min flex-col space-y-4 rounded-lg bg-neutral-3 p-4" action={dispatch}>
         <TextInput name="title" placeholder="Task Title" />
         <Error error={state.errors?.title} />
@@ -64,7 +64,7 @@ const Form = ({ onClose }: FormProps) => {
         <Error error={state.errors?.dueDate} />
         <Buttons onClose={onClose} />
       </form>
-    </FormStateHandler>
+    </StateHandler>
   );
 };
 
