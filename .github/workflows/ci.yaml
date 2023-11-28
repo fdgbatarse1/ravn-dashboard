@@ -6,6 +6,9 @@ jobs:
   standard-checks:
     name: Standard checks
     runs-on: ubuntu-latest
+    env:
+      URI: ${{ secrets.URI }}
+      TOKEN: ${{ secrets.TOKEN }}
 
     steps:
       - name: Checkout code
