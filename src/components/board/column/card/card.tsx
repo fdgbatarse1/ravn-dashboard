@@ -4,7 +4,7 @@ import Avatar from '@/components/user/avatar';
 import { TasksQuery } from '@/gql/graphql';
 import pointEstimateToNumber from '@/utils/formatters/pointEstimateToNumber';
 import dueDateText from '@/utils/formatters/dueDateText';
-import dueDateStatus from '@/utils/formatters/dueDateStatus/dueDateStatus';
+import dueDateStatus from '@/utils/formatters/dueDateStatus';
 import tagColor from '@/utils/formatters/tagColor';
 import placeholder from '@/assets/image/placeholder.webp';
 

@@ -1,14 +1,17 @@
 'use client';
 
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { RiAddLine } from 'react-icons/ri';
 import clsx from 'clsx';
+
+import Link from 'next/link';
 
 import Button from '@/components/button';
 
 import switcher from './switcher';
 
 const TopBar = () => {
+  const router = useRouter();
   const pathname = usePathname();
   return (
     <div className="flex justify-between">
@@ -16,7 +19,7 @@ const TopBar = () => {
         {switcher.map(({ Icon, key, path }) => (
           <Button
             key={key}
-            onClick={() => console.log(key)}
+            onClick={() => router.push(path)}
             className={clsx({
               'border border-solid border-primary-4 text-primary-4': pathname === path,
               'text-neutral-1 hover:text-primary-4': pathname !== path,
@@ -26,9 +29,11 @@ const TopBar = () => {
           </Button>
         ))}
       </div>
-      <Button onClick={() => console.log(1)} className="bg-primary-4 text-neutral-1">
-        <RiAddLine size="24px" />
-      </Button>
+      <Link href="?modal=true">
+        <Button className="bg-primary-4 text-neutral-1">
+          <RiAddLine size="24px" />
+        </Button>
+      </Link>
     </div>
   );
 };
