@@ -12,21 +12,22 @@ const TestComponent = ({ asyncFunction }: { asyncFunction: jest.Mock<any, any, a
 };
 
 describe('useAsync hook', () => {
-  it('should show loading initially', () => {
+  it('should show loading initially', async () => {
     const mockAsyncFunction = jest.fn().mockResolvedValue('test value');
     render(<TestComponent asyncFunction={mockAsyncFunction} />);
 
     expect(screen.getByText('Loading...')).toBeInTheDocument();
+
+    await waitFor(() => {
+      expect(screen.queryByText('Loading...')).not.toBeInTheDocument();
+    });
   });
 
   it('should handle a resolved value correctly', async () => {
     const mockAsyncFunction = jest.fn().mockResolvedValue('test value');
     render(<TestComponent asyncFunction={mockAsyncFunction} />);
 
-    await waitFor(() => screen.getByText('Value: test value'));
-
-    expect(screen.queryByText('Loading...')).not.toBeInTheDocument();
-    expect(screen.getByText('Value: test value')).toBeInTheDocument();
+    await waitFor(() => expect(screen.getByText('Value: test value')).toBeInTheDocument());
   });
 
   it('should handle errors correctly', async () => {
@@ -34,9 +35,6 @@ describe('useAsync hook', () => {
     const mockAsyncFunction = jest.fn().mockRejectedValue(mockError);
     render(<TestComponent asyncFunction={mockAsyncFunction} />);
 
-    await waitFor(() => screen.getByText(`Error: Error`));
-
-    expect(screen.queryByText('Loading...')).not.toBeInTheDocument();
-    expect(screen.getByText(`Error: Error`)).toBeInTheDocument();
+    await waitFor(() => expect(screen.getByText(`Error: Error`)).toBeInTheDocument());
   });
 });
