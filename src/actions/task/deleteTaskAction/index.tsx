@@ -3,7 +3,7 @@
 import { redirect } from 'next/navigation';
 import { revalidatePath } from 'next/cache';
 import ErrorType from '@/data/enums/error';
-import deleteTask from '@/services/deleteTask';
+import deleteTask from '@/services/mutation/deleteTask';
 
 import TaskSchema from '../taskSchema';
 

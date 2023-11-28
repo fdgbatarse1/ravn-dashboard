@@ -5,7 +5,7 @@ import getClient from '@/lib/ApolloClient';
 import { TasksQuery } from '@/gql/graphql';
 import ErrorType from '@/data/enums/error';
 
-import tasksQuery from './gql/tasksQuery';
+import tasksQuery from '../gql/tasksQuery';
 
 const getTasks = async () => {
   try {

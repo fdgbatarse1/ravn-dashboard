@@ -5,7 +5,7 @@ import getClient from '@/lib/ApolloClient';
 import { CreateTaskInput, CreateTaskMutation } from '@/gql/graphql';
 import ErrorType from '@/data/enums/error';
 
-import postTaskMutation from './gql/postTaskMutation';
+import postTaskMutation from '../gql/postTaskMutation';
 
 const postTask = async (input: CreateTaskInput) => {
   console.log('postTask', input);

@@ -4,7 +4,7 @@ import getClient from '@/lib/ApolloClient';
 
 import { UsersQuery } from '@/gql/graphql';
 import ErrorType from '@/data/enums/error';
-import usersQuery from './gql/usersQuery';
+import usersQuery from '../gql/usersQuery';
 
 const getUsers = async () => {
   try {

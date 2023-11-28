@@ -6,7 +6,7 @@ import { State } from '@/actions/task/taskSchema';
 import ErrorType from '@/data/enums/error';
 import { PointEstimate, TaskTag, UsersQuery } from '@/gql/graphql';
 import useAsync from '@/hooks/useAsync';
-import getUsers from '@/services/getUsers';
+import getUsers from '@/services/query/getUsers';
 import pointEstimateToNumber from '@/utils/pointEstimateToNumber';
 
 import Error from './error';

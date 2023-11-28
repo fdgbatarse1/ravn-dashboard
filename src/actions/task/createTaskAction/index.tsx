@@ -4,7 +4,7 @@ import { redirect } from 'next/navigation';
 import { revalidatePath } from 'next/cache';
 import ErrorType from '@/data/enums/error';
 import { Status } from '@/gql/graphql';
-import postTask from '@/services/postTask';
+import postTask from '@/services/mutation/postTask';
 
 import TaskSchema, { State } from '../taskSchema';
 
