@@ -1,5 +1,5 @@
 import NavigationBar from '@/components/navbar';
-import TopBar from '@/components/topbar/topbar';
+import TopBar from '@/components/topbar';
 import Board from '@/components/board';
 
 import getTasks from '@/services/getTasks';
