@@ -66,19 +66,4 @@ const apolloClient = registerApolloClient(
     }),
 );
 
-/**
- * Retrieves the registered Apollo Client instance.
- *
- * The `getClient` function is used to retrieve the registered Apollo Client instance from the `apolloClient` object.
- * This function is used in other parts of the application to execute GraphQL operations.
- *
- * @returns The registered Apollo Client instance.
- * @example const { data } = await getClient().query<TasksQuery>({ query: tasksQuery });
- *
- * @see getClient from '@apollo/experimental-nextjs-app-support/rsc'.
- */
-const getApolloClient = apolloClient.getClient;
-
-export { getApolloClient as getClient };
-
-export default apolloClient;
+export default apolloClient.getClient;

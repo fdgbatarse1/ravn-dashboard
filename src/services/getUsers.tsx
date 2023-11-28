@@ -1,6 +1,6 @@
 'use server';
 
-import { getClient } from '@/lib/ApolloClient';
+import getClient from '@/lib/ApolloClient';
 import { gql } from '@apollo/client';
 
 import { UsersQuery } from '@/gql/graphql';
