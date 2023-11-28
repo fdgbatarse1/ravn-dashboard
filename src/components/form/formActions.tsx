@@ -1,7 +1,11 @@
 'use server';
 
 import { z } from 'zod';
-import { PointEstimate, TaskTag } from '@/gql/graphql';
+import { PointEstimate, Status, TaskTag } from '@/gql/graphql';
+import postTask from '@/services/postTask';
+import { revalidatePath } from 'next/cache';
+import { redirect } from 'next/navigation';
+import ErrorType from '@/data/enums/error';
 
 export type State = {
   errors?: {
@@ -39,10 +43,7 @@ const TaskSchema = z.object({
   }),
 });
 
-const createTask = async (prevState: State, formData: FormData) => {
-  console.log(prevState);
-  console.log(formData);
-
+const createTask = async (_: State, formData: FormData) => {
   const validatedFields = TaskSchema.safeParse({
     title: formData.get('title'),
     estimate: formData.get('estimate'),
@@ -57,6 +58,24 @@ const createTask = async (prevState: State, formData: FormData) => {
       message: 'Missing Fields. Failed to create task.',
     };
   }
+
+  try {
+    await postTask({
+      assigneeId: validatedFields.data.assignee,
+      dueDate: validatedFields.data.dueDate,
+      name: validatedFields.data.title,
+      pointEstimate: validatedFields.data.estimate,
+      status: Status.Backlog,
+      tags: validatedFields.data.label,
+    });
+  } catch (e) {
+    return {
+      message: ErrorType.PostTask,
+    };
+  }
+
+  revalidatePath('/');
+  redirect('/');
 
   return {};
 };

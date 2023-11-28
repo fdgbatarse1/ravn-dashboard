@@ -7,6 +7,7 @@ import { PointEstimate, TaskTag, UsersQuery } from '@/gql/graphql';
 import useAsync from '@/hooks/useAsync';
 // import getUsers from '@/services/getUsers';
 import pointEstimateToNumber from '@/utils/formatters/pointEstimateToNumber';
+import ErrorType from '@/data/enums/error';
 
 import Error from './error';
 import Buttons from './buttons';
@@ -45,8 +46,10 @@ const Form = ({ onClose }: FormProps) => {
     text: value.replace('_', ' '),
   }));
 
+  const externalError = state.message === ErrorType.PostTask ? state.message : undefined;
+
   return (
-    <StateHandler loading={loading} error={error} onClose={onClose}>
+    <StateHandler loading={loading} externalError={externalError} error={error} onClose={onClose}>
       <form className="flex w-min flex-col space-y-4 rounded-lg bg-neutral-3 p-4" action={dispatch}>
         <TextInput name="title" placeholder="Task Title" />
         <Error error={state.errors?.title} />

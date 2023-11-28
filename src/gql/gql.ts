@@ -15,6 +15,7 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
 const documents = {
     "\n  query tasks {\n    tasks(input: {}) {\n      assignee {\n        avatar\n      }\n      dueDate\n      id\n      name\n      pointEstimate\n      position\n      status\n      tags\n    }\n  }\n": types.TasksDocument,
     "\n  query users {\n    users {\n      id\n      avatar\n      fullName\n    }\n  }\n": types.UsersDocument,
+    "\n  mutation createTask(\n    $assigneeId: String\n    $dueDate: DateTime!\n    $name: String!\n    $pointEstimate: PointEstimate!\n    $status: Status!\n    $tags: [TaskTag!]!\n  ) {\n    createTask(\n      input: {\n        assigneeId: $assigneeId\n        dueDate: $dueDate\n        name: $name\n        pointEstimate: $pointEstimate\n        status: $status\n        tags: $tags\n      }\n    ) {\n      assignee {\n        avatar\n        createdAt\n        email\n        fullName\n        id\n        type\n        updatedAt\n      }\n      createdAt\n      creator {\n        avatar\n        createdAt\n        email\n        fullName\n        id\n        type\n        updatedAt\n      }\n      dueDate\n      id\n      name\n      pointEstimate\n      position\n      status\n      tags\n    }\n  }\n": types.CreateTaskDocument,
 };
 
 /**
@@ -39,6 +40,10 @@ export function graphql(source: "\n  query tasks {\n    tasks(input: {}) {\n    
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function graphql(source: "\n  query users {\n    users {\n      id\n      avatar\n      fullName\n    }\n  }\n"): (typeof documents)["\n  query users {\n    users {\n      id\n      avatar\n      fullName\n    }\n  }\n"];
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(source: "\n  mutation createTask(\n    $assigneeId: String\n    $dueDate: DateTime!\n    $name: String!\n    $pointEstimate: PointEstimate!\n    $status: Status!\n    $tags: [TaskTag!]!\n  ) {\n    createTask(\n      input: {\n        assigneeId: $assigneeId\n        dueDate: $dueDate\n        name: $name\n        pointEstimate: $pointEstimate\n        status: $status\n        tags: $tags\n      }\n    ) {\n      assignee {\n        avatar\n        createdAt\n        email\n        fullName\n        id\n        type\n        updatedAt\n      }\n      createdAt\n      creator {\n        avatar\n        createdAt\n        email\n        fullName\n        id\n        type\n        updatedAt\n      }\n      dueDate\n      id\n      name\n      pointEstimate\n      position\n      status\n      tags\n    }\n  }\n"): (typeof documents)["\n  mutation createTask(\n    $assigneeId: String\n    $dueDate: DateTime!\n    $name: String!\n    $pointEstimate: PointEstimate!\n    $status: Status!\n    $tags: [TaskTag!]!\n  ) {\n    createTask(\n      input: {\n        assigneeId: $assigneeId\n        dueDate: $dueDate\n        name: $name\n        pointEstimate: $pointEstimate\n        status: $status\n        tags: $tags\n      }\n    ) {\n      assignee {\n        avatar\n        createdAt\n        email\n        fullName\n        id\n        type\n        updatedAt\n      }\n      createdAt\n      creator {\n        avatar\n        createdAt\n        email\n        fullName\n        id\n        type\n        updatedAt\n      }\n      dueDate\n      id\n      name\n      pointEstimate\n      position\n      status\n      tags\n    }\n  }\n"];
 
 export function graphql(source: string) {
   return (documents as any)[source] ?? {};
