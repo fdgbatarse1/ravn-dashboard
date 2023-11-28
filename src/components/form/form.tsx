@@ -28,7 +28,7 @@ interface UpdateProps extends CreateProps {
 
 type FormProps = CreateProps | UpdateProps;
 
-const Form = ({ onClose, type, id }: FormProps) => {
+const Form = ({ onClose }: FormProps) => {
   const initialState = {};
   const [state, dispatch] = useFormState<State, FormData>(createTaskAction, initialState);
 
