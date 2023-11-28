@@ -9,13 +9,16 @@ import tagColor from '@/utils/formatters/tagColor';
 import placeholder from '@/assets/image/placeholder.webp';
 
 import Reaction from './reaction';
+import Settings from './settings';
 
 interface CardProps {
   task: TasksQuery['tasks'][0];
+  selectedCard: string | null;
+  updateSelectedCard: (id: string) => void;
 }
 
-const Card = ({ task }: CardProps) => {
-  const { name, pointEstimate, dueDate, tags, assignee } = task;
+const Card = ({ task, selectedCard, updateSelectedCard }: CardProps) => {
+  const { name, pointEstimate, dueDate, tags, assignee, id } = task;
   const imageUrl = assignee?.avatar;
   const formattedEstimateValue = pointEstimateToNumber(pointEstimate);
   const formattedDueDateText = dueDateText(dueDate);
@@ -24,7 +27,14 @@ const Card = ({ task }: CardProps) => {
     <article className="space-y-4 rounded-lg bg-neutral-4 p-4 text-neutral-1">
       <div className="flex justify-between space-x-2">
         <h4 className="text-body-l font-semibold text-neutral-1">{name}</h4>
-        <RiMoreFill size="24px" className="text-neutral-2" />
+        <div className="relative">
+          <RiMoreFill
+            size="24px"
+            className="cursor-pointer text-neutral-2 hover:text-neutral-1"
+            onClick={() => updateSelectedCard(id)}
+          />
+          {selectedCard === id && <Settings id={id} />}
+        </div>
       </div>
       <div className="flex justify-between space-x-2">
         <p className="text-body-m font-semibold text-neutral-1">{formattedEstimateValue} points</p>
