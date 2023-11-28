@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import Form from './form';
 
 const meta = {
-  title: 'Components/modal/form',
+  title: 'Components/form',
   component: Form,
   tags: ['autodocs'],
 } satisfies Meta<typeof Form>;
