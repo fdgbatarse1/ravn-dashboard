@@ -1,20 +1,10 @@
 'use server';
 
 import getClient from '@/lib/ApolloClient';
-import { gql } from '@apollo/client';
 
 import { UsersQuery } from '@/gql/graphql';
 import ErrorType from '@/data/enums/error';
-
-const usersQuery = gql`
-  query users {
-    users {
-      id
-      avatar
-      fullName
-    }
-  }
-`;
+import usersQuery from './gql/usersQuery';
 
 const getUsers = async () => {
   try {

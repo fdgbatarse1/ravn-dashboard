@@ -1,43 +1,11 @@
 'use server';
 
 import getClient from '@/lib/ApolloClient';
-import { gql } from '@apollo/client';
 
 import { DeleteTaskInput, DeleteTaskMutation } from '@/gql/graphql';
 import ErrorType from '@/data/enums/error';
 
-const deleteTaskMutation = gql`
-  mutation deleteTask($id: String!) {
-    deleteTask(input: { id: $id }) {
-      assignee {
-        avatar
-        createdAt
-        email
-        fullName
-        id
-        type
-        updatedAt
-      }
-      createdAt
-      creator {
-        avatar
-        createdAt
-        email
-        fullName
-        id
-        type
-        updatedAt
-      }
-      dueDate
-      id
-      name
-      pointEstimate
-      position
-      status
-      tags
-    }
-  }
-`;
+import deleteTaskMutation from './gql/deleteTaskMutation';
 
 const deleteTask = async (input: DeleteTaskInput) => {
   try {

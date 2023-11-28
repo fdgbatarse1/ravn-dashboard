@@ -1,27 +1,11 @@
 'use server';
 
 import getClient from '@/lib/ApolloClient';
-import { gql } from '@apollo/client';
 
 import { TasksQuery } from '@/gql/graphql';
 import ErrorType from '@/data/enums/error';
 
-const tasksQuery = gql`
-  query tasks {
-    tasks(input: {}) {
-      assignee {
-        avatar
-      }
-      dueDate
-      id
-      name
-      pointEstimate
-      position
-      status
-      tags
-    }
-  }
-`;
+import tasksQuery from './gql/tasksQuery';
 
 const getTasks = async () => {
   try {
