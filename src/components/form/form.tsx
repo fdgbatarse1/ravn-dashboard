@@ -5,7 +5,7 @@ import { useFormState } from 'react-dom';
 import UsersQueryMock from '@/data/mocks/UsersQueryMock';
 import { PointEstimate, TaskTag, UsersQuery } from '@/gql/graphql';
 import useAsync from '@/hooks/useAsync';
-import getUsers from '@/services/getUsers';
+// import getUsers from '@/services/getUsers';
 import pointEstimateToNumber from '@/utils/formatters/pointEstimateToNumber';
 
 import Error from './error';
