@@ -25,6 +25,7 @@ const tasksQuery = gql`
 
 const getTasks = async () => {
   try {
+    console.log('getTasks');
     const { data } = await getClient().query<TasksQuery>({ query: tasksQuery });
     return data;
   } catch {

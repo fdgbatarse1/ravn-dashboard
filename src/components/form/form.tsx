@@ -2,18 +2,18 @@
 
 import { useFormState } from 'react-dom';
 
-import UsersQueryMock from '@/data/mocks/UsersQueryMock';
 import { PointEstimate, TaskTag, UsersQuery } from '@/gql/graphql';
 import useAsync from '@/hooks/useAsync';
-// import getUsers from '@/services/getUsers';
+import getUsers from '@/services/getUsers';
 import pointEstimateToNumber from '@/utils/pointEstimateToNumber';
 import ErrorType from '@/data/enums/error';
+import { State } from '@/actions/task/taskSchema';
+import createTaskAction from '@/actions/task/createTaskAction';
 
 import Error from './error';
 import Buttons from './buttons';
 import TextInput from './textInput';
 import SelectInput from './selectInput';
-import { State, createTaskAction } from './formActions';
 import CheckboxInput from './checkboxInput';
 import StateHandler from './stateHandler';
 
@@ -33,8 +33,7 @@ const Form = ({ onClose }: FormProps) => {
   const [state, dispatch] = useFormState<State, FormData>(createTaskAction, initialState);
 
   const [loading, error, users] = useAsync<UsersQuery['users']>(async () => {
-    // const data = await getUsers();
-    const data = UsersQueryMock;
+    const data = await getUsers();
     return data.users;
   }, []);
 

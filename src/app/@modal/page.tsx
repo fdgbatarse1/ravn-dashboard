@@ -3,9 +3,9 @@
 import { useSearchParams, useRouter } from 'next/navigation';
 import { useRef, useEffect, useCallback } from 'react';
 
+import deleteTaskAction from '@/actions/task/deleteTaskAction';
 import Form from '@/components/form';
 import Confirmation from '@/components/confirmation/confirmation';
-import { deleteTaskAction } from '@/components/form/formActions';
 
 const Modal = () => {
   const router = useRouter();
