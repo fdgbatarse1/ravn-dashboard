@@ -2,13 +2,12 @@
 
 import { useFormState } from 'react-dom';
 
+import { State } from '@/actions/task/taskSchema';
+import ErrorType from '@/data/enums/error';
 import { PointEstimate, TaskTag, UsersQuery } from '@/gql/graphql';
 import useAsync from '@/hooks/useAsync';
 import getUsers from '@/services/getUsers';
 import pointEstimateToNumber from '@/utils/pointEstimateToNumber';
-import ErrorType from '@/data/enums/error';
-import { State } from '@/actions/task/taskSchema';
-import createTaskAction from '@/actions/task/createTaskAction';
 
 import Error from './error';
 import Buttons from './buttons';
@@ -16,21 +15,11 @@ import TextInput from './textInput';
 import SelectInput from './selectInput';
 import CheckboxInput from './checkboxInput';
 import StateHandler from './stateHandler';
+import FormProps from './formProps';
 
-interface CreateProps {
-  onClose: () => void;
-  type: 'create' | 'update';
-}
-
-interface UpdateProps extends CreateProps {
-  id: string;
-}
-
-type FormProps = CreateProps | UpdateProps;
-
-const Form = ({ onClose }: FormProps) => {
+const Form = ({ onClose, action }: FormProps) => {
   const initialState = {};
-  const [state, dispatch] = useFormState<State, FormData>(createTaskAction, initialState);
+  const [state, dispatch] = useFormState<State, FormData>(action, initialState);
 
   const [loading, error, users] = useAsync<UsersQuery['users']>(async () => {
     const data = await getUsers();
@@ -52,7 +41,10 @@ const Form = ({ onClose }: FormProps) => {
     text: value.replace('_', ' '),
   }));
 
-  const externalError = state.message === ErrorType.PostTask ? state.message : undefined;
+  const postTaskError = state.message === ErrorType.PostTask;
+  const updateTaskError = state.message === ErrorType.UpdateTask;
+  const errorType = postTaskError || updateTaskError;
+  const externalError = errorType ? state.message : undefined;
 
   return (
     <StateHandler loading={loading} externalError={externalError} error={error} onClose={onClose}>

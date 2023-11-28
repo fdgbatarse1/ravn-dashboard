@@ -1,4 +1,5 @@
 import { PointEstimate, TaskTag } from '@/gql/graphql';
+import type { State } from '@/actions/task/taskSchema';
 
 interface CreateProps {
   type: 'create';
@@ -12,6 +13,9 @@ interface UpdateProps {
   dueDate: string;
 }
 
-type FormProps = CreateProps | UpdateProps;
+type FormProps = (CreateProps | UpdateProps) & {
+  action: (state: State, payload: FormData) => Promise<State>;
+  onClose: () => void;
+};
 
 export default FormProps;
