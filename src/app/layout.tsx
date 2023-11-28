@@ -17,7 +17,7 @@ function RootLayout({ children, modal }: RootLayoutProps) {
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/icon?<generated>" type="image/<generated>" sizes="<generated>" />
+        <link rel="icon" href="/icon" />
       </head>
       <body className="bg-neutral-5 font-sans text-white">
         <div className="flex h-screen flex-col space-y-8 p-8 md:flex-row md:space-x-8 md:space-y-0">
