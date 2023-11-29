@@ -4,9 +4,9 @@ import { PointEstimate, TaskTag } from '@/gql/graphql';
 export type State = {
   data?: {
     id?: string;
-    position?: number;
   };
   errors?: {
+    position?: string[];
     title?: string[];
     estimate?: string[];
     assignee?: string[];

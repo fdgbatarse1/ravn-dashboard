@@ -45,7 +45,6 @@ const Form = ({
   const initialState = {
     data: {
       id,
-      position,
     },
   };
 
@@ -88,6 +87,17 @@ const Form = ({
         <Error error={state.errors?.assignee} />
         <CheckboxInput name="label" array={labelArray} defaultValue={tags} />
         <Error error={state.errors?.label} />
+        {position !== undefined && (
+          <>
+            <input
+              defaultValue={position}
+              type="number"
+              name="position"
+              className="rounded bg-neutral-1 px-1 py-1 text-body-m text-neutral-4"
+            />
+            <Error error={state.errors?.position} />
+          </>
+        )}
         <input
           type="datetime-local"
           name="dueDate"

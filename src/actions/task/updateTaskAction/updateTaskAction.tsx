@@ -12,7 +12,7 @@ const UpdateTask = TaskSchema;
 const updateTaskAction = async (state: State, formData: FormData) => {
   const validatedFields = UpdateTask.safeParse({
     id: state?.data?.id,
-    position: state?.data?.position,
+    position: Number(formData.get('position')),
     title: formData.get('title'),
     estimate: formData.get('estimate'),
     assignee: formData.get('assignee'),
@@ -26,6 +26,8 @@ const updateTaskAction = async (state: State, formData: FormData) => {
       message: 'Missing Fields. Failed to update task.',
     };
   }
+
+  console.log('validatedFields', validatedFields);
 
   try {
     await updateTask({
