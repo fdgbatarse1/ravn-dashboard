@@ -27,8 +27,6 @@ const updateTaskAction = async (state: State, formData: FormData) => {
     };
   }
 
-  console.log('validatedFields', validatedFields);
-
   try {
     await updateTask({
       position: validatedFields.data.position,
