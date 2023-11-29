@@ -4,6 +4,7 @@ const data: TasksQuery = {
   tasks: [
     {
       assignee: {
+        id: '1',
         avatar: 'https://avatars.dicebear.com/api/initials/gs.svg',
       },
       dueDate: '2023-11-27T07:30:42.413Z',
@@ -16,6 +17,7 @@ const data: TasksQuery = {
     },
     {
       assignee: {
+        id: '2',
         avatar: 'https://avatars.dicebear.com/api/initials/jd.svg',
       },
       dueDate: '2023-11-24T07:30:42.413Z',
@@ -28,6 +30,7 @@ const data: TasksQuery = {
     },
     {
       assignee: {
+        id: '1',
         avatar: 'https://avatars.dicebear.com/api/initials/jd.svg',
       },
       dueDate: '2023-12-04T07:30:42.413Z',
@@ -40,6 +43,7 @@ const data: TasksQuery = {
     },
     {
       assignee: {
+        id: '1',
         avatar: 'https://avatars.dicebear.com/api/initials/rb.svg',
       },
       dueDate: '2023-11-24T07:30:42.413Z',
@@ -52,6 +56,7 @@ const data: TasksQuery = {
     },
     {
       assignee: {
+        id: '1',
         avatar: 'https://avatars.dicebear.com/api/initials/rb.svg',
       },
       dueDate: '2023-11-25T07:30:42.413Z',
@@ -64,6 +69,7 @@ const data: TasksQuery = {
     },
     {
       assignee: {
+        id: '1',
         avatar: 'https://avatars.dicebear.com/api/initials/jd.svg',
       },
       dueDate: '2023-11-30T07:30:42.413Z',
@@ -76,6 +82,7 @@ const data: TasksQuery = {
     },
     {
       assignee: {
+        id: '1',
         avatar: 'https://avatars.dicebear.com/api/initials/rb.svg',
       },
       dueDate: '2023-11-26T07:30:42.413Z',
@@ -88,6 +95,7 @@ const data: TasksQuery = {
     },
     {
       assignee: {
+        id: '1',
         avatar: 'https://avatars.dicebear.com/api/initials/gs.svg',
       },
       dueDate: '2023-11-28T07:30:42.413Z',
