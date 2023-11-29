@@ -8,7 +8,7 @@ import postTask from '@/services/mutation/postTask';
 
 import TaskSchema, { State } from '../taskSchema';
 
-const CreateTask = TaskSchema.omit({ id: true });
+const CreateTask = TaskSchema.omit({ id: true, position: true });
 
 const createTaskAction = async (_: State, formData: FormData) => {
   const validatedFields = CreateTask.safeParse({

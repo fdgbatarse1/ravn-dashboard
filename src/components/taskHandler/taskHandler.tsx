@@ -24,11 +24,12 @@ const TaskHandler = ({ onClose, type, id }: TaskHandlerProps) => {
   if (error) return <div>Error...</div>;
 
   if (type === 'create') {
-    return <Form onClose={onClose} action={createTaskAction} />;
+    return <Form onClose={onClose} type="create" action={createTaskAction} />;
   }
   if (type === 'update' && id) {
     return (
       <Form
+        type="update"
         onClose={onClose}
         action={updateTaskAction}
         title={selected?.name}
