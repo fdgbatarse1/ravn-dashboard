@@ -2,6 +2,10 @@ import { z } from 'zod';
 import { PointEstimate, TaskTag } from '@/gql/graphql';
 
 export type State = {
+  data?: {
+    id?: string;
+    position?: number;
+  };
   errors?: {
     title?: string[];
     estimate?: string[];
@@ -16,6 +20,10 @@ const TaskSchema = z.object({
   id: z.string({
     required_error: 'Task id is required.',
     invalid_type_error: 'Invalid task id.',
+  }),
+  position: z.number({
+    required_error: 'Task position is required.',
+    invalid_type_error: 'Invalid task position.',
   }),
   title: z
     .string({

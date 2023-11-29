@@ -6,9 +6,10 @@ import { useFormStatus } from 'react-dom';
 
 interface ButtonsProps {
   onClose: () => void;
+  type?: string;
 }
 
-const Buttons = ({ onClose }: ButtonsProps) => {
+const Buttons = ({ onClose, type }: ButtonsProps) => {
   const { pending } = useFormStatus();
 
   const submitClasses = clsx(
@@ -23,7 +24,7 @@ const Buttons = ({ onClose }: ButtonsProps) => {
         Cancel
       </Button>
       <Button className={submitClasses} submit>
-        Create
+        {type === 'create' ? 'Create' : 'Update'}
       </Button>
     </div>
   );

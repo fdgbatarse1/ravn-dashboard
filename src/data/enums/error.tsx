@@ -4,6 +4,7 @@ enum ErrorType {
   PostTask = "Couldn't post task",
   UpdateTask = "Couldn't update task",
   DeleteTask = "Couldn't delete task",
+  TaskNotFound = 'Task not found',
 }
 
 export default ErrorType;

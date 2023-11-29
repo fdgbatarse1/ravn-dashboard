@@ -2,13 +2,17 @@
 
 import { redirect } from 'next/navigation';
 import { revalidatePath } from 'next/cache';
+import ErrorType from '@/data/enums/error';
+import { Status } from '@/gql/graphql';
+import updateTask from '@/services/mutation/updateTask';
 import TaskSchema, { State } from '../taskSchema';
 
 const UpdateTask = TaskSchema;
 
-const updateTaskAction = async (_: State, formData: FormData) => {
+const updateTaskAction = async (state: State, formData: FormData) => {
   const validatedFields = UpdateTask.safeParse({
-    id: formData.get('id'),
+    id: state?.data?.id,
+    position: state?.data?.position,
     title: formData.get('title'),
     estimate: formData.get('estimate'),
     assignee: formData.get('assignee'),
@@ -19,7 +23,24 @@ const updateTaskAction = async (_: State, formData: FormData) => {
   if (!validatedFields.success) {
     return {
       errors: validatedFields.error.flatten().fieldErrors,
-      message: 'Missing Fields. Failed to create task.',
+      message: 'Missing Fields. Failed to update task.',
+    };
+  }
+
+  try {
+    await updateTask({
+      position: validatedFields.data.position,
+      id: validatedFields.data.id,
+      assigneeId: validatedFields.data.assignee,
+      dueDate: validatedFields.data.dueDate,
+      name: validatedFields.data.title,
+      pointEstimate: validatedFields.data.estimate,
+      status: Status.Backlog,
+      tags: validatedFields.data.label,
+    });
+  } catch (e) {
+    return {
+      message: ErrorType.UpdateTask,
     };
   }
 
