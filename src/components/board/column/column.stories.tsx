@@ -21,6 +21,8 @@ export const Backlog: Story = {
   args: {
     name: 'Backlog',
     tasks: columns.BACKLOG,
+    selectedCard: '',
+    updateSelectedCard: () => {},
   },
 };
 
@@ -28,6 +30,8 @@ export const Todo: Story = {
   args: {
     name: 'Todo',
     tasks: columns.TODO,
+    selectedCard: '',
+    updateSelectedCard: () => {},
   },
 };
 
@@ -35,6 +39,8 @@ export const InProgress: Story = {
   args: {
     name: 'In Progress',
     tasks: columns.IN_PROGRESS,
+    selectedCard: '',
+    updateSelectedCard: () => {},
   },
 };
 
@@ -42,6 +48,8 @@ export const Done: Story = {
   args: {
     name: 'Done',
     tasks: [],
+    selectedCard: '',
+    updateSelectedCard: () => {},
   },
 };
 
@@ -49,5 +57,7 @@ export const Cancelled: Story = {
   args: {
     name: 'Cancelled',
     tasks: columns.CANCELLED,
+    selectedCard: '',
+    updateSelectedCard: () => {},
   },
 };

@@ -16,5 +16,7 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     task: TasksQueryMock.tasks[0],
+    selectedCard: '',
+    updateSelectedCard: () => {},
   },
 };

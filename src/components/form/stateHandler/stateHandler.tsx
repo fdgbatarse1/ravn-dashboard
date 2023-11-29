@@ -1,7 +1,7 @@
 interface StateHandlerProps<T> {
   children: React.ReactNode;
   loading: boolean;
-  externalError?: string;
+  externalError?: string | null;
   error: T;
   onClose: () => void;
 }

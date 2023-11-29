@@ -2,7 +2,7 @@ import NavigationBar from '@/components/navbar';
 import TopBar from '@/components/topbar/topbar';
 import Board from '@/components/board';
 
-import getTasks from '@/services/getTasks';
+import getTasks from '@/services/query/getTasks';
 
 const Home = async () => {
   const data = await getTasks();

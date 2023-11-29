@@ -29,7 +29,7 @@ const TopBar = () => {
           </Button>
         ))}
       </div>
-      <Link href="?modal=true">
+      <Link href="?modal=true&type=create">
         <Button className="bg-primary-4 text-neutral-1">
           <RiAddLine size="24px" />
         </Button>
