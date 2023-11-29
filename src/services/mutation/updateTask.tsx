@@ -9,7 +9,6 @@ import updateTaskMutation from '../gql/updateTaskMutation';
 
 const updateTask = async (input: UpdateTaskInput) => {
   try {
-    console.log('updateTask', input);
     const res = await getClient().mutate<UpdateTaskMutation>({
       mutation: updateTaskMutation,
       variables: input,

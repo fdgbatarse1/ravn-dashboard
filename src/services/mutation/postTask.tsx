@@ -8,7 +8,6 @@ import ErrorType from '@/data/enums/error';
 import postTaskMutation from '../gql/postTaskMutation';
 
 const postTask = async (input: CreateTaskInput) => {
-  console.log('postTask', input);
   try {
     const res = await getClient().mutate<CreateTaskMutation>({
       mutation: postTaskMutation,

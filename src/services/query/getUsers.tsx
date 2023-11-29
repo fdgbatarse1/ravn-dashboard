@@ -8,7 +8,6 @@ import usersQuery from '../gql/usersQuery';
 
 const getUsers = async () => {
   try {
-    console.log('getUsers');
     const { data } = await getClient().query<UsersQuery>({ query: usersQuery });
     return data;
   } catch {
